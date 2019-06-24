@@ -93,6 +93,11 @@ const Sidebar = ({ ...props }) => {
       </a>
     </div>
   );
+  var version = (
+    <div className={classes.logo}>
+      <a className={classes.logoLink} href="">{process.env.REACT_APP_VERSION}</a>
+    </div>
+  );
   return (
     <div>
       <Hidden mdUp implementation="css">
@@ -114,6 +119,7 @@ const Sidebar = ({ ...props }) => {
           <div className={classes.sidebarWrapper}>
             {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
             {links}
+            {version}
           </div>
           {image !== undefined ? (
             <div
@@ -135,7 +141,8 @@ const Sidebar = ({ ...props }) => {
           }}
         >
           {brand}
-          <div className={classes.sidebarWrapper}>{links}</div>
+          <div className={classes.sidebarWrapper}>{links}</div>          
+          {version}
           {image !== undefined ? (
             <div
               className={classes.background}

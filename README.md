@@ -10,5 +10,5 @@ More information about that project can be found at their [website](https://demo
 
 ## Licensing
 
-- Copyright 2018 Creative Tim (https://www.creative-tim.com)
-- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-react/blob/master/LICENSE.md)
+- Original Application Template: Copyright 2018 Creative Tim (https://www.creative-tim.com)
+- Original and Derived Work Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-react/blob/master/LICENSE.md)
