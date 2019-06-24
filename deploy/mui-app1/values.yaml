@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: sandboxregistry.freebytech.com/k8s-tests/mui-app1
+  repository: registry.freebytech.com/k8s-tests/mui-app1
   tag: "latest"
   pullPolicy: Always
   imagePullSecrets: "freebytech-regcred"
