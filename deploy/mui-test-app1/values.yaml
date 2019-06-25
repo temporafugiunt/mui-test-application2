@@ -9,12 +9,12 @@ image:
   tag: "latest"
   pullPolicy: Always
   imagePullSecrets: "freebytech-regcred"
-# env:
-#   - name: MAIL__SMTPSERVER
-#     valueFrom:
-#       secretKeyRef:
-#         name: smtp-env-secrets
-#         key: MAIL__SMTPSERVER          
+env:
+  - name: ENVIRONMENT_NAME
+    valueFrom:
+      secretKeyRef:
+        name: standard-env-secrets
+        key: ENVIRONMENT_NAME          
 nameOverride: ""
 fullnameOverride: ""
 
