@@ -30,7 +30,7 @@ spec:
   {{- end }}
     route:
     - destination:
-      host: {{ $fullName }}
-      port:
-        number: {{ .Values.service.port }}
+        host: {{ $fullName }}
+        port:
+          number: {{ .Values.service.port }}
 {{- end }}
