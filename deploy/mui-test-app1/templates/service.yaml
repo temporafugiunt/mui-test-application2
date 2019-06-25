@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "freebytech-corp.fullname" . }}
+  name: {{ include "mui-test-app1.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "freebytech-corp.name" . }}
-    helm.sh/chart: {{ include "freebytech-corp.chart" . }}
+    app.kubernetes.io/name: {{ include "mui-test-app1.name" . }}
+    helm.sh/chart: {{ include "mui-test-app1.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "freebytech-corp.name" . }}
+    app.kubernetes.io/name: {{ include "mui-test-app1.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
