@@ -33,3 +33,4 @@ spec:
       host: {{ $fullName }}
       port:
         number: {{ .Values.service.port }}
+{{- end }}
