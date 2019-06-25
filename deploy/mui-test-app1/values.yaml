@@ -36,11 +36,20 @@ ingress:
   paths: 
     - /app1
   hosts:
-    - apps.sytes.net
+    - sandboxapps.ddns.net
   tls:
     - secretName: apps-dyndns-tls
       hosts:
-        - apps.sytes.net
+        - sandboxapps.ddns.net
+
+virtualService:
+  enabled: true
+  gateways: 
+    - istio-system/apps-dyndns-gateway
+  hosts: 
+    - sandboxapps.ddns.net
+  uriPrefixes:
+    - /app1
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
