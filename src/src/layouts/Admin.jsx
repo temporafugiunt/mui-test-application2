@@ -24,10 +24,10 @@ let ps;
 const switchRoutes = (
   <Switch>
     {routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/app1/admin") {
         return (
           <Route
-            path={prop.layout + prop.path}
+            path={ prop.layout + prop.path}
             component={prop.component}
             key={key}
           />
@@ -35,7 +35,7 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/admin" to="/admin/dashboard" />
+    <Redirect from="/app1/admin" to="/app1/admin/dashboard" />
   </Switch>
 );
 
@@ -65,7 +65,7 @@ class Dashboard extends React.Component {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
   getRoute() {
-    return window.location.pathname !== "/admin/maps";
+    return window.location.pathname !== "/app1/admin/maps";
   }
   resizeFunction = () => {
     if (window.innerWidth >= 960) {

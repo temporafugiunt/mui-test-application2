@@ -14,9 +14,9 @@ const hist = createBrowserHistory();
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/admin" component={Admin} />
-      <Route path="/rtl" component={RTL} />
-      <Redirect from="/" to="/admin/dashboard" />
+      <Route path="/app1/admin" component={Admin} />
+      <Route path="/app1/rtl" component={RTL} />
+      <Redirect from="/" to="/app1/admin/dashboard" />
     </Switch>
   </Router>,
   document.getElementById("root")
