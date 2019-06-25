@@ -27,6 +27,8 @@ spec:
   {{- range .Values.virtualService.uriPrefixes }}
     - uri:
         prefix: {{ . | quote }}
+    rewrite:
+      uri: "/"
   {{- end }}
     route:
     - destination:
