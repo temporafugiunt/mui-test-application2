@@ -1,4 +1,4 @@
-FROM nginx:1.16.0-alpine as destination
+FROM nginx:1.16.0-alpine as prod-dest
 ARG BUILD_VERSION
 ENV BUILD_VERSION=${BUILD_VERSION}
 
@@ -18,7 +18,7 @@ COPY . /usr/src/app
 RUN npm run build
 
 # Runtime Environment
-FROM destination
+FROM prod-dest
 RUN mkdir -p /usr/share/nginx/html/app1
 COPY --from=build /usr/src/app/build /usr/share/nginx/html/app1
 
