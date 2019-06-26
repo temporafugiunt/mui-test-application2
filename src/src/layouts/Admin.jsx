@@ -24,10 +24,10 @@ let ps;
 const switchRoutes = (
   <Switch>
     {routes.map((prop, key) => {
-      if (prop.layout === "/app1/admin") {
+      if (prop.layout === "/admin") {
         return (
           <Route
-            path={ prop.layout + prop.path}
+            path={prop.layout + prop.path}
             component={prop.component}
             key={key}
           />
@@ -35,7 +35,7 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/app1/admin" to="/app1/admin/dashboard" />
+    <Redirect from="/admin" to="/admin/dashboard" />
   </Switch>
 );
 
@@ -98,7 +98,7 @@ class Dashboard extends React.Component {
       <div className={classes.wrapper}>
         <Sidebar
           routes={routes}
-          logoText={`App 1 - ${process.env.REACT_APP_ENVIRONMENT}`}
+          logoText={`${process.env.REACT_APP_NAME} - ${process.env.REACT_APP_ENVIRONMENT}`}
           logo={logo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}
