@@ -1,5 +1,3 @@
-ARG BUILD_VERSION=0.0.0.1
-
 #build environment
 FROM node:12.2.0-alpine as build
 
@@ -17,6 +15,7 @@ RUN npm run build
 
 # Runtime Environment
 FROM nginx:1.16.0-alpine
+ARG BUILD_VERSION
 RUN mkdir -p /usr/share/nginx/html/app1
 
 ENV BUILD_VERSION=${BUILD_VERSION}
