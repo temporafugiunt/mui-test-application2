@@ -1,4 +1,6 @@
+FROM nginx:1.16.0-alpine as destination
 ARG BUILD_VERSION
+ENV BUILD_VERSION=${BUILD_VERSION}
 
 #build environment
 FROM node:12.2.0-alpine as build
@@ -15,13 +17,10 @@ RUN npm install
 COPY . /usr/src/app
 RUN npm run build
 
-
 # Runtime Environment
-FROM nginx:1.16.0-alpine
+FROM destination
 RUN mkdir -p /usr/share/nginx/html/app1
 COPY --from=build /usr/src/app/build /usr/share/nginx/html/app1
-
-ENV BUILD_VERSION=${BUILD_VERSION}
 
 EXPOSE 80
 
