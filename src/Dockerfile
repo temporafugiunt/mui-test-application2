@@ -39,10 +39,11 @@ ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
 
 ENV PORT=3000
+
 # Copy over backend
 COPY ./backend/. /usr/src/app
 
-
+# Copy client app built from previous stage
 COPY --from=build /usr/src/app/build /usr/src/app/client
 
 EXPOSE 3000

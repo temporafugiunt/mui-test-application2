@@ -11,8 +11,6 @@ var clientLocation = path.join(__dirname, "client/");
 console.log(`Back end running as app '${process.env.APP_NAME}'`);
 // eslint-disable-next-line no-console
 console.log(`Service static files from ${clientLocation}`);
-// eslint-disable-next-line no-console
-console.log(process.env);
 
 app.use(`/${process.env.APP_NAME}`, express.static(clientLocation));
 
