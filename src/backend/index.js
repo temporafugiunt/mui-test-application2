@@ -23,7 +23,7 @@ app.get(`/${process.env.APP_NAME}/api/getEnvironment`, (req, res) => {
 });
 
 // Handles any requests that don't match the ones above
-app.get(`/${process.env.APP_NAME}/*`, (req, res) => {
+app.get(`/*`, (req, res) => {
   res.sendFile(path.join(__dirname + "/client/index.html"));
 });
 
