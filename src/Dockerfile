@@ -1,5 +1,4 @@
-ARG BUILD_VERSION
-ARG APP_NAME=App1
+ARG APP_NAME='App1'
 FROM node:12.2.0-alpine as build
 
 # Create client app build
@@ -10,7 +9,10 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install
 
+# Build Time Environment Variables
+ARG BUILD_VERSION
 ENV BUILD_VERSION=${BUILD_VERSION}
+ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
 
 # Bundle app source
@@ -30,12 +32,16 @@ WORKDIR /usr/src/app
 COPY ./backend/package.json /usr/src/app
 RUN npm install
 
+# Build Time Environment Variables
+ARG BUILD_VERSION
+ENV BUILD_VERSION=${BUILD_VERSION}
+ARG APP_NAME
+ENV APP_NAME=${APP_NAME}
+
+ENV PORT=3000
 # Copy over backend
 COPY ./backend/. /usr/src/app
 
-ENV BUILD_VERSION=${BUILD_VERSION}
-ENV APP_NAME=${APP_NAME}
-ENV PORT=3000
 
 COPY --from=build /usr/src/app/build /usr/src/app/client
 
