@@ -38,7 +38,7 @@ ENV BUILD_VERSION=${BUILD_VERSION}
 ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
 
-ENV PORT=3000
+ENV PORT=5000
 
 # Copy over backend
 COPY ./backend/. /usr/src/app
@@ -46,6 +46,6 @@ COPY ./backend/. /usr/src/app
 # Copy client app built from previous stage
 COPY --from=build /usr/src/app/build /usr/src/app/client
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD [ "npm", "run",  "start" ]

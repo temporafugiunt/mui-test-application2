@@ -8,7 +8,9 @@ const app = express();
 // Serve the static files from the React app
 var clientLocation = path.join(__dirname, "client/");
 // eslint-disable-next-line no-console
-console.log(`Back end running as app '${process.env.APP_NAME}'`);
+console.log(
+  `Back end running as app '${process.env.APP_NAME}' for environment '${process.env.ENVIRONMENT_NAME}`
+);
 // eslint-disable-next-line no-console
 console.log(`Service static files from ${clientLocation}`);
 
