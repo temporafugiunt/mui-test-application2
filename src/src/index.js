@@ -6,10 +6,9 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Admin from "layouts/Admin.jsx";
 import RTL from "layouts/RTL.jsx";
 
-import "assets/css/material-dashboard-react.css?v=1.7.0";
+import { istioAppDesignation } from "variables/general.jsx";
 
-// Istio is currently case sensitive, though they have merged in a pull request to become case insensitive.
-const istioAppDesignation = process.env.REACT_APP_SUBDIR.toLowerCase()
+import "assets/css/material-dashboard-react.css?v=1.7.0";
 
 ReactDOM.render(
   <BrowserRouter basename={istioAppDesignation}>

@@ -19,6 +19,8 @@ import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboar
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 
+import { istioAppDesignation } from "variables/general.jsx";
+
 let ps;
 
 const switchRoutes = (
@@ -45,7 +47,8 @@ class Dashboard extends React.Component {
     color: "blue",
     hasImage: true,
     fixedClasses: "dropdown show",
-    mobileOpen: false
+    mobileOpen: false,
+    environment: "unknown"
   };
   mainPanel = React.createRef();
   handleImageClick = image => {
@@ -76,6 +79,7 @@ class Dashboard extends React.Component {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(this.mainPanel.current);
     }
+    this.getEnvironment();
     window.addEventListener("resize", this.resizeFunction);
   }
   componentDidUpdate(e) {
@@ -86,6 +90,16 @@ class Dashboard extends React.Component {
       }
     }
   }
+  getEnvironment() {
+    fetch(`${istioAppDesignation}/api/getenvironment`)
+      .then(res => res.json())
+      .then(environment => this.setState({ environment }))
+      .catch(error => {
+        this.setState({ environment: "call failed" });
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+  }
   componentWillUnmount() {
     if (navigator.platform.indexOf("Win") > -1) {
       ps.destroy();
@@ -94,11 +108,12 @@ class Dashboard extends React.Component {
   }
   render() {
     const { classes, ...rest } = this.props;
+    const { environment } = this.state;
     return (
       <div className={classes.wrapper}>
         <Sidebar
           routes={routes}
-          logoText={`${process.env.REACT_APP_NAME} - ${process.env.REACT_APP_ENVIRONMENT}`}
+          logoText={`${process.env.REACT_APP_NAME} - ${environment}`}
           logo={logo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}
