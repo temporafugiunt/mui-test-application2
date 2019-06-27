@@ -4,7 +4,7 @@ import com.freebyTech.BuildInfo
 
 String versionPrefix = '1.0'
 String repository = 'k8s-tests'    
-String imageName = 'mui-test-app1'
+String imageName = 'mui-test-app2'
 String dockerBuildArguments = ''
 BuildInfo buildInfo
 

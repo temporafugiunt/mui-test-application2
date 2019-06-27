@@ -1,4 +1,4 @@
-# Material-UI Test Application 1
+# Material-UI Test Application 2
 
 ## Overview
 

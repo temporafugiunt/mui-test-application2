@@ -1,4 +1,4 @@
-ARG APP_NAME='App1'
+ARG APP_NAME='App2'
 FROM node:12.2.0-alpine as build
 
 # Create client app build

@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: "1.0"
-description: A Helm Chart for deployment of the MUI K8s Test Application 1.
-name: mui-test-app1
-version: 0.1.0
