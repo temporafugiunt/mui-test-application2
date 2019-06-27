@@ -1,6 +1,8 @@
 export BUILD_VERSION=0.1.1.1
 export ENVIRONMENT_NAME=localdev
-export PUBLIC_URL=http://localhost:3000/api1
 export APP_NAME=App1
+export PORT=3000
+
+# Build the client code and place it in /client/api1 in this directory.
 
 npm run start
