@@ -3,6 +3,9 @@ const path = require("path");
 
 const app = express();
 
+// Istio is currently case sensitive, though they have merged in a pull request to become case insensitive.
+const istioAppDesignation = process.env.ENVIRONMENT_NAME.toLowerCase();
+
 //app.set("case sensitive routing", true);
 
 // Serve the static files from the React app
@@ -14,10 +17,10 @@ console.log(
 // eslint-disable-next-line no-console
 console.log(`Service static files from ${clientLocation}`);
 
-app.use(`/${process.env.APP_NAME}`, express.static(clientLocation));
+app.use(`/${istioAppDesignation}`, express.static(clientLocation));
 
 // An api endpoint that returns a short list of items
-app.get(`/${process.env.APP_NAME}/api/getEnvironment`, (req, res) => {
+app.get(`/${istioAppDesignation}/api/getEnvironment`, (req, res) => {
   var environmentName = process.env.ENVIRONMENT_NAME;
   res.json(environmentName);
 });
