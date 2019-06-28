@@ -17,6 +17,7 @@ var server = [
   "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
   'Sign contract for "What are conference organizers afraid of?"'
 ];
+
 var istioAppDesignation = process.env.REACT_APP_SUBDIR.toLowerCase();
 
 module.exports = {

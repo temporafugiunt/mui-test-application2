@@ -6,13 +6,18 @@ import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 import TableList from "views/TableList/TableList.jsx";
 
+import { istioAppDesignation } from "variables/general.jsx";
+
 const dashboardRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard - App 1",
     rtlName: "لوحة القيادة",
     icon: Dashboard,
-    component: DashboardPage,
+    component: () => {
+      window.location.href = `${process.env.PUBLIC_URL.replace(istioAppDesignation, "/app1")}/admin/dashboard`; 
+      return null;
+    },
     layout: "/admin",
     isExternal: false
   },
@@ -27,10 +32,13 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "User Profile - App 3",
+    name: "User Profile - App 1",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
-    component: UserProfile,
+    component: () => {
+      window.location.href = `${process.env.PUBLIC_URL.replace(istioAppDesignation, "/app1")}/admin/user`; 
+      return null;
+    },
     layout: "/admin",
     isExternal: true
   }
