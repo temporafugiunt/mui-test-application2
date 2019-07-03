@@ -1,6 +1,7 @@
 {{- if .Values.virtualService.enabled -}}
 {{- $fullName := include "mui-test-app1.fullname" . -}}
 {{- $port := .Values.service.port -}}
+{{- $namespace := .Release.Namespace }}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -28,6 +29,9 @@ spec:
   - match:
     - uri:
         prefix: {{ . | quote }}
+    - headers:
+        environment:
+          exact: {{ $namespace }}
     route:
     - destination:
         host: {{ $fullName }}
@@ -37,6 +41,9 @@ spec:
   - match:
     - uri:
         exact: {{ . | quote }}
+    - headers:
+        environment:
+          exact: {{ $namespace }}
     route:
     - destination:
         host: {{ $fullName }}
