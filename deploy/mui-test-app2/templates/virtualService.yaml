@@ -28,7 +28,7 @@ spec:
   {{- range .Values.virtualService.uriPrefixes }}
   - match:
     - headers:
-        environment:
+        user-env:
           exact: {{ $namespace | quote }}
       uri:
         prefix: {{ . | quote }}
@@ -40,7 +40,7 @@ spec:
   {{- end }}{{- range .Values.virtualService.uriExactMatches }}
   - match:
     - headers:
-        environment:
+        user-env:
           exact: {{ $namespace | quote }}
       uri:
         exact: {{ . | quote }}
