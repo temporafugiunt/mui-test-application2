@@ -29,7 +29,7 @@ spec:
   - match:
     - uri:
         prefix: {{ . | quote }}
-    - headers:
+      headers:
         environment:
           exact: {{ $namespace }}
     route:
@@ -41,7 +41,7 @@ spec:
   - match:
     - uri:
         exact: {{ . | quote }}
-    - headers:
+      headers:
         environment:
           exact: {{ $namespace }}
     route:
