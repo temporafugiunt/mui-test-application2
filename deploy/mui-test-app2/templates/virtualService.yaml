@@ -27,11 +27,11 @@ spec:
   http:
   {{- range .Values.virtualService.uriPrefixes }}
   - match:
-    - uri:
-        prefix: {{ . | quote }}
-      headers:
+    - headers:
         environment:
-          exact: {{ $namespace }}
+          exact: {{ $namespace | quote }}
+      uri:
+        prefix: {{ . | quote }}
     route:
     - destination:
         host: {{ $fullName }}
@@ -39,11 +39,11 @@ spec:
           number: {{ $port }}
   {{- end }}{{- range .Values.virtualService.uriExactMatches }}
   - match:
-    - uri:
-        exact: {{ . | quote }}
-      headers:
+    - headers:
         environment:
-          exact: {{ $namespace }}
+          exact: {{ $namespace | quote }}
+      uri:
+        exact: {{ . | quote }}
     route:
     - destination:
         host: {{ $fullName }}
