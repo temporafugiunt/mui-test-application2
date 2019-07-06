@@ -31,7 +31,12 @@ spec:
         prefix: {{ . | quote }}
       headers:
         cookie:
-          exact: {{ "environment=" $namespace | quote }}
+          exact: environment={{  $namespace }}
+    route:
+    - destination:
+        host: {{ $fullName }}
+        port:
+          number: {{ $port }} 
   {{- end }}
   {{- range .Values.virtualService.uriExactMatches }}
   - match:
@@ -39,11 +44,11 @@ spec:
         exact: {{ . | quote }}
       headers:
         cookie:
-          exact: {{ "environment=" $namespace | quote }}
-  {{- end }}    
+          exact: environment={{  $namespace }}
     route:
     - destination:
         host: {{ $fullName }}
         port:
-          number: {{ $port }}  
+          number: {{ $port }} 
+  {{- end }}     
 {{- end }}
