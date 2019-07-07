@@ -31,7 +31,7 @@ spec:
         prefix: {{ . | quote }}
       headers:
         cookie:
-          exact: environment={{  $namespace }}
+          exact: "environment={{ $namespace }}"
     route:
     - destination:
         host: {{ $fullName }}
@@ -44,7 +44,7 @@ spec:
         exact: {{ . | quote }}
       headers:
         cookie:
-          exact: environment={{  $namespace }}
+          exact: "environment={{ $namespace }}"
     route:
     - destination:
         host: {{ $fullName }}
