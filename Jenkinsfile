@@ -12,7 +12,7 @@ node
 {
   buildInfo = build(this, versionPrefix, repository, imageName, dockerBuildArguments, true, true)
 
-  getApproval(imageName, 'None\nproduction\nbeta')
+  getApproval(imageName, 'None\ndev\nqa')
 
   if(!'None'.equalsIgnoreCase(env.NAMESPACE)) 
   {
