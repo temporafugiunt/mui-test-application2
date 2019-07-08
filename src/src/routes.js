@@ -48,7 +48,7 @@ const dashboardRoutes = [
     rtlName: "قائمة الجدول",
     icon: "exit_to_app",
     component: () => {
-      window.location.href = process.env.PUBLIC_URL.replace(istioAppDesignation, ""); 
+      window.location.href = process.env.PUBLIC_URL.replace(istioAppDesignation, "/Home"); 
       return null;
     },
     layout: "/admin",
