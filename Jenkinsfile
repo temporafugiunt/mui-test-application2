@@ -12,11 +12,21 @@ node
 {
   buildInfo = build(this, versionPrefix, repository, imageName, dockerBuildArguments, true, true)
 
-  getApproval(imageName, 'None\ndev\nqa')
+  getApproval(imageName, 'None\nBoth\ndev\nqa')
 
   if(!'None'.equalsIgnoreCase(env.NAMESPACE)) 
   {
-    deploy(buildInfo, repository, imageName)
+    if('Both'.equalsIgnoreCase(env.NAMESPACE))
+    {
+      env.NAMESPACE = 'dev';
+      deploy(buildInfo, repository, imageName)
+      env.NAMESPACE = 'qa';
+      deploy(buildInfo, repository, imageName)
+    }
+    else 
+    {
+      deploy(buildInfo, repository, imageName)
+    }    
   }
 }
 
