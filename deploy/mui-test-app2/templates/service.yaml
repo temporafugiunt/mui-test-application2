@@ -19,4 +19,3 @@ spec:
       name: http
   selector:
     app: {{ include "mui-test-app1.name" . }}
-    version: {{ .Values.image.tag }}
