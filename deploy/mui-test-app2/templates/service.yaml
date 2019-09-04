@@ -19,5 +19,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "mui-test-app1.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+    app: {{ include "mui-test-app1.name" . }}
+    version: {{ .Values.image.tag }}
