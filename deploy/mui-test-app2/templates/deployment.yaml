@@ -7,6 +7,8 @@ metadata:
     helm.sh/chart: {{ include "mui-test-app1.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app: {{ include "mui-test-app1.name" . }}
+    version: {{ .Values.image.tag }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
