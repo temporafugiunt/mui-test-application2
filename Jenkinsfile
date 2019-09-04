@@ -19,13 +19,13 @@ node
     if('Both'.equalsIgnoreCase(env.NAMESPACE))
     {
       env.NAMESPACE = 'dev';
-      deploy(buildInfo, repository, imageName)
+      deploy(buildInfo, repository, imageName, true)
       env.NAMESPACE = 'qa';
-      deploy(buildInfo, repository, imageName)
+      deploy(buildInfo, repository, imageName, true)
     }
     else 
     {
-      deploy(buildInfo, repository, imageName)
+      deploy(buildInfo, repository, imageName, true)
     }    
   }
 }
